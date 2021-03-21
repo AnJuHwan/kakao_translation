@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+/* global kakao*/
+class App extends Component {
+  componentDidMount = () => {
+    const myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      "KakaoAK 371c08739d9745e863731e0385f5fd00"
+    );
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://dapi.kakao.com/v2/translation/translate?src_lang=kr&target_lang=en&query=임성현",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  render() {
+    return <div></div>;
+  }
 }
 
 export default App;
