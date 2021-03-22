@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Trans_Input from "./components/Trans_Input";
-import Trans_Result from "./components/Trans_Result";
+import Trans_Input from "./components/input/Trans_Input";
+import Trans_Result from "./components/result/Trans_Result";
+import styles from "./App.module.css";
+
 /* global kakao*/
 class App extends Component {
   state = {
@@ -55,10 +57,10 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className={styles.wrap}>
         <Trans_Input onChange={this.handleQuery} />
         <Trans_Result data={this.state.translated} />
-      </>
+      </div>
     );
   }
 }

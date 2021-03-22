@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import styles from "./trans_result.module.css";
 class Trans_Result extends Component {
   state = {
     trans: [],
@@ -12,8 +12,9 @@ class Trans_Result extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.style}>
         <textarea
+          className={styles.result}
           placeholder='번역됩니다'
           cols='30'
           rows='20'
