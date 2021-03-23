@@ -5,8 +5,13 @@
 
 .result {
   width: 100%;
-  height: 100%;
+  height: 80%;
   border: 1px solid grey;
   border-left: none;
   padding: 0.5em;
+  cursor: default;
+}
+
+.result:focus {
+  outline: none;
 }
