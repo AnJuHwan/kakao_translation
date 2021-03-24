@@ -5,13 +5,16 @@ class Trans_Input extends Component {
   textareaRef = React.createRef();
   transChange = () => {
     const query = this.textareaRef.current.value;
-    query && this.props.onChange(query);
+    const code = this.props.languageInfo.code;
+    query && this.props.onChange(query, code);
     query && this.props.onHeader(query);
+    console.log(code);
   };
 
   input = () => {
     const query = this.textareaRef.current.value;
-    query && this.props.onInput(query);
+    const code = this.props.languageInfo.code;
+    query && this.props.onInput(query, code);
   };
 
   render() {

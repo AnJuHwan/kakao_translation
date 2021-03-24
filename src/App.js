@@ -11,7 +11,6 @@ class App extends Component {
     languageInfo: [],
     input: [],
     src: [],
-    target: [],
   };
   //languageInfo 에 0번째 인덱스만 나오게 함
   ////////////////////////////////////////
@@ -42,13 +41,12 @@ class App extends Component {
 
   /////////////////////////////////////////
 
-  handleInput = (query) => {
+  handleInput = (query, src) => {
     this.setState({ input: query });
+    this.setState({ src: src });
   };
-  //const { languageInfo } = this.state;
-  // languageInfo.map((info) => console.log(info.name));
 
-  handleQuery = (query) => {
+  handleQuery = (query, src) => {
     const myHeaders = new Headers();
     myHeaders.append(
       "Authorization",
@@ -60,9 +58,9 @@ class App extends Component {
       headers: myHeaders,
       redirect: "follow",
     };
-    //src : 번역할 말 ,   target : 번역한 것
+    //src : 번역할 말 ,   target : 번역한 것 지금 에러나는 이유는 src_lang이랑 target_lang이 같기떄문에 에러남.
     fetch(
-      `https://dapi.kakao.com/v2/translation/translate?src_lang=kr&target_lang=en&query=${query}`,
+      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=kr&query=${query}`,
       requestOptions
     )
       .then((response) => response.json())
@@ -82,8 +80,10 @@ class App extends Component {
               onChange={this.handleQuery}
               onHeader={this.handleHeader}
               inputData={this.state.input}
+              inputSrc={this.state.src}
             />
             <Trans_Input
+              languageInfo={this.state.languageInfo}
               onChange={this.handleQuery}
               onHeader={this.handleHeader}
               onInput={this.handleInput}
