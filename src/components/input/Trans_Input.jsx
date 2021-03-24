@@ -5,9 +5,15 @@ class Trans_Input extends Component {
   textareaRef = React.createRef();
   transChange = () => {
     const query = this.textareaRef.current.value;
-    this.props.onChange(query);
-    this.props.onHeader(query);
+    query && this.props.onChange(query);
+    query && this.props.onHeader(query);
   };
+
+  input = () => {
+    const query = this.textareaRef.current.value;
+    query && this.props.onInput(query);
+  };
+
   render() {
     return (
       <div className={styles.style}>
@@ -15,6 +21,7 @@ class Trans_Input extends Component {
           className={styles.input}
           ref={this.textareaRef}
           onChange={this.transChange}
+          onKeyUp={this.input}
           placeholder='번역 입력해주세요'
           cols='30'
           rows='20'

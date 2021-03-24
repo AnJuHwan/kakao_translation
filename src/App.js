@@ -9,30 +9,11 @@ class App extends Component {
   state = {
     translated: [],
     languageInfo: [],
+    input: [],
+    src: [],
+    target: [],
   };
-
-  // componentDidMount = () => {
-  //   const myHeaders = new Headers();
-  //   myHeaders.append(
-  //     "Authorization",
-  //     "KakaoAK 371c08739d9745e863731e0385f5fd00"
-  //   );
-
-  //   const requestOptions = {
-  //     method: "GET",
-  //     headers: myHeaders,
-  //     redirect: "follow",
-  //   };
-
-  //   fetch(
-  //     "https://dapi.kakao.com/v3/translation/language/detect?query=hello",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => console.log(result))
-  //     .catch((error) => console.log("error", error));
-  // };
-
+  //languageInfo 에 0번째 인덱스만 나오게 함
   ////////////////////////////////////////
 
   handleHeader = (query) => {
@@ -53,11 +34,19 @@ class App extends Component {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => this.setState({ languageInfo: result.language_info }))
+      .then((result) =>
+        this.setState({ languageInfo: result.language_info[0] })
+      )
       .catch((error) => console.log("error", error));
   };
 
   /////////////////////////////////////////
+
+  handleInput = (query) => {
+    this.setState({ input: query });
+  };
+  //const { languageInfo } = this.state;
+  // languageInfo.map((info) => console.log(info.name));
 
   handleQuery = (query) => {
     const myHeaders = new Headers();
@@ -88,10 +77,16 @@ class App extends Component {
       <>
         <div className={styles.wrap}>
           <div>
-            <HeaderSensing languageInfo={this.state.languageInfo} />
+            <HeaderSensing
+              languageInfo={this.state.languageInfo}
+              onChange={this.handleQuery}
+              onHeader={this.handleHeader}
+              inputData={this.state.input}
+            />
             <Trans_Input
               onChange={this.handleQuery}
               onHeader={this.handleHeader}
+              onInput={this.handleInput}
             />
           </div>
           <div>
