@@ -10,3 +10,7 @@
   margin-top: 1em;
   height: 100%;
 }
+
+.position {
+  position: relative;
+}

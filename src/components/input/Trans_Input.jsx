@@ -6,7 +6,8 @@ class Trans_Input extends Component {
   transChange = () => {
     const query = this.textareaRef.current.value;
     const code = this.props.languageInfo.code;
-    query && this.props.onChange(query, code);
+    const target = this.props.data;
+    query && this.props.onChange(query, code, target);
     query && this.props.onHeader(query);
     console.log(code);
   };

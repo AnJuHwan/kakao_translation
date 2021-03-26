@@ -3,6 +3,7 @@ import Trans_Input from "./components/input/Trans_Input";
 import Trans_Result from "./components/result/Trans_Result";
 import styles from "./App.module.css";
 import HeaderSensing from "./components/header_sensing/Header_Sensing";
+import Header_result from "./components/header_result/Header_result";
 
 /* global kakao*/
 class App extends Component {
@@ -46,7 +47,7 @@ class App extends Component {
     this.setState({ src: src });
   };
 
-  handleQuery = (query, src) => {
+  handleQuery = (query, src, target) => {
     const myHeaders = new Headers();
     myHeaders.append(
       "Authorization",
@@ -60,7 +61,7 @@ class App extends Component {
     };
     //src : 번역할 말 ,   target : 번역한 것 지금 에러나는 이유는 src_lang이랑 target_lang이 같기떄문에 에러남.
     fetch(
-      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=kr&query=${query}`,
+      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=en&query=${query}`,
       requestOptions
     )
       .then((response) => response.json())
@@ -87,10 +88,11 @@ class App extends Component {
               onChange={this.handleQuery}
               onHeader={this.handleHeader}
               onInput={this.handleInput}
+              data={this.state.translated}
             />
           </div>
-          <div>
-            <HeaderSensing />
+          <div className={styles.position}>
+            <Header_result />
             <Trans_Result data={this.state.translated} />
           </div>
         </div>
