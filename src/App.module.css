@@ -9,6 +9,7 @@
   justify-content: center;
   margin-top: 1em;
   height: 100%;
+  width: max-content;
 }
 
 .position {

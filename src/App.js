@@ -12,6 +12,7 @@ class App extends Component {
     languageInfo: [],
     input: [],
     src: [],
+    target: [],
   };
   //languageInfo 에 0번째 인덱스만 나오게 함
   ////////////////////////////////////////
@@ -47,6 +48,10 @@ class App extends Component {
     this.setState({ src: src });
   };
 
+  stateTarget = (target) => {
+    this.setState({ target: target });
+  };
+
   handleQuery = (query, src, target) => {
     const myHeaders = new Headers();
     myHeaders.append(
@@ -61,7 +66,7 @@ class App extends Component {
     };
     //src : 번역할 말 ,   target : 번역한 것 지금 에러나는 이유는 src_lang이랑 target_lang이 같기떄문에 에러남.
     fetch(
-      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=en&query=${query}`,
+      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=${target}&query=${query}`,
       requestOptions
     )
       .then((response) => response.json())
@@ -88,11 +93,11 @@ class App extends Component {
               onChange={this.handleQuery}
               onHeader={this.handleHeader}
               onInput={this.handleInput}
-              data={this.state.translated}
+              target={this.state.target}
             />
           </div>
           <div className={styles.position}>
-            <Header_result />
+            <Header_result stateTarget={this.stateTarget} />
             <Trans_Result data={this.state.translated} />
           </div>
         </div>
