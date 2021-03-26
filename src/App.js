@@ -5,6 +5,8 @@ import styles from "./App.module.css";
 import HeaderSensing from "./components/header_sensing/Header_Sensing";
 import Header_result from "./components/header_result/Header_result";
 
+//이제 기능적으로 마지막으로 할 일 : Header_result 값을 변경하는것 , position 쓴 css 건들이기
+
 /* global kakao*/
 class App extends Component {
   state = {
