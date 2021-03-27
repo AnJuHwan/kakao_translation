@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kakao_translation/static/css/main.c21f4441.chunk.css",
+    "main.js": "/kakao_translation/static/js/main.152ff8bd.chunk.js",
+    "main.js.map": "/kakao_translation/static/js/main.152ff8bd.chunk.js.map",
+    "runtime-main.js": "/kakao_translation/static/js/runtime-main.6a09bcf9.js",
+    "runtime-main.js.map": "/kakao_translation/static/js/runtime-main.6a09bcf9.js.map",
+    "static/js/2.9916e680.chunk.js": "/kakao_translation/static/js/2.9916e680.chunk.js",
+    "static/js/2.9916e680.chunk.js.map": "/kakao_translation/static/js/2.9916e680.chunk.js.map",
+    "static/js/3.2397d56f.chunk.js": "/kakao_translation/static/js/3.2397d56f.chunk.js",
+    "static/js/3.2397d56f.chunk.js.map": "/kakao_translation/static/js/3.2397d56f.chunk.js.map",
+    "index.html": "/kakao_translation/index.html",
+    "static/css/main.c21f4441.chunk.css.map": "/kakao_translation/static/css/main.c21f4441.chunk.css.map",
+    "static/js/2.9916e680.chunk.js.LICENSE.txt": "/kakao_translation/static/js/2.9916e680.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6a09bcf9.js",
+    "static/js/2.9916e680.chunk.js",
+    "static/css/main.c21f4441.chunk.css",
+    "static/js/main.152ff8bd.chunk.js"
+  ]
+}
