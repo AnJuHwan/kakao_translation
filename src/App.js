@@ -68,7 +68,9 @@ class App extends Component {
     };
     //src : 번역할 말 ,   target : 번역한 것 지금 에러나는 이유는 src_lang이랑 target_lang이 같기떄문에 에러남.
     fetch(
-      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=${target}&query=${query}`,
+      `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=${
+        this.state.target.length === 0 ? "kr" : target
+      }&query=${query}`,
       requestOptions
     )
       .then((response) => response.json())

@@ -5,7 +5,7 @@ class Header_result extends Component {
 
   state = {
     toggle: false,
-    languageValue: [],
+    languageValue: "",
   };
   togglebutton = () => {
     this.setState({ toggle: !this.state.toggle });
@@ -23,7 +23,7 @@ class Header_result extends Component {
     const toggle = this.state.toggle === true ? styles.on : styles.off;
     return (
       <ul className={styles.header}>
-        <div>한국어</div>
+        <div>선택해주세요</div>
         <button className={styles.button} onClick={this.togglebutton}>
           <i className='fas fa-angle-down'></i>
         </button>
