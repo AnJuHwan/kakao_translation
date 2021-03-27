@@ -21,9 +21,72 @@ class Header_result extends Component {
 
   render() {
     const toggle = this.state.toggle === true ? styles.on : styles.off;
+
     return (
       <ul className={styles.header}>
-        <div>선택해주세요</div>
+        {(() => {
+          switch (this.state.languageValue) {
+            case "kr":
+              return <div>한국어</div>;
+
+            case "en":
+              return <div>영어</div>;
+
+            case "jp":
+              return <div>일본어</div>;
+
+            case "cn":
+              return <div>중국어</div>;
+
+            case "vi":
+              return <div>베트남어</div>;
+
+            case "id":
+              return <div>인도네시아어</div>;
+
+            case "ar":
+              return <div>아랍어</div>;
+
+            case "bn":
+              return <div>뱅갈어</div>;
+
+            case "de":
+              return <div>독일어</div>;
+
+            case "es":
+              return <div>스페인어</div>;
+
+            case "fr":
+              return <div>프랑스어</div>;
+
+            case "hi":
+              return <div>힌디어</div>;
+
+            case "it":
+              return <div>이탈리아어</div>;
+
+            case "ms":
+              return <div>말레이시아어</div>;
+
+            case "nl":
+              return <div>네덜란드어</div>;
+
+            case "pt":
+              return <div>포르투갈어</div>;
+
+            case "ru":
+              return <div>러시아어</div>;
+
+            case "th":
+              return <div>태국어</div>;
+
+            case "tr":
+              return <div>터키어</div>;
+
+            default:
+              return <div>선택해주세요(기본값:한국어)</div>;
+          }
+        })()}
         <button className={styles.button} onClick={this.togglebutton}>
           <i className='fas fa-angle-down'></i>
         </button>
