@@ -23,7 +23,7 @@ class App extends Component {
     const myHeaders = new Headers();
     myHeaders.append(
       "Authorization",
-      "KakaoAK 371c08739d9745e863731e0385f5fd00"
+      `KakaoAK ${process.env.REACT_APP_KAKAO_API_KEY}`
     );
 
     const requestOptions = {
@@ -58,7 +58,7 @@ class App extends Component {
     const myHeaders = new Headers();
     myHeaders.append(
       "Authorization",
-      "KakaoAK 371c08739d9745e863731e0385f5fd00"
+      `KakaoAK ${process.env.REACT_APP_KAKAO_API_KEY}`
     );
 
     const requestOptions = {
@@ -66,7 +66,7 @@ class App extends Component {
       headers: myHeaders,
       redirect: "follow",
     };
-    //src : 번역할 말 ,   target : 번역한 것 지금 에러나는 이유는 src_lang이랑 target_lang이 같기떄문에 에러남.
+
     fetch(
       `https://dapi.kakao.com/v2/translation/translate?src_lang=${src}&target_lang=${
         this.state.target.length === 0 ? "kr" : target
